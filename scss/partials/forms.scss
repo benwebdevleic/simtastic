@@ -1,0 +1,33 @@
+form {
+
+}
+
+fieldset {
+
+}
+
+select {
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 44px;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0 7px;
+  font-size: 1rem;
+  background-image: url(/img/select-triangle.svg);
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  padding-right: 2rem;
+
+  @media screen and (min-width: $width-desktop) {
+    line-height: 40px;
+  }
+
+}
+
+input[type="number"] {
+  line-height: 44px;
+  padding: 0 7px;
+  box-sizing: border-box;
+  width: 70px;
+}

@@ -1,0 +1,335 @@
+.comparison-chart {
+  position: relative;
+
+  @media screen and (min-width: $width-desktop) {
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0;
+  }
+}
+
+.comparison-chart-filters {
+  position: fixed;
+  background-color: #fff;
+  right: 0;
+  top: 0;
+  width: 90%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-left: 2px solid #ccc;
+  z-index: 1;
+  display: none;
+
+  &.show {
+    display: block;
+    animation-duration: 300ms;
+    animation-name: slideLeft;
+  }
+
+  &:before {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(255,255,255,0.8);
+    z-index: -1;
+
+    @media screen and (min-width: $width-desktop) {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $width-desktop) {
+    position: static;
+    display: block;
+    flex: 0 0 230px;
+    border-left: none;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 20px;
+  }
+}
+
+.comparison-chart-filter {
+  overflow: hidden;
+}
+
+.comparison-chart-filter-heading {
+
+}
+
+.comparison-chart-content {
+
+  @media screen and (min-width: $width-desktop) {
+    flex: 2;
+    position: relative;
+  }
+}
+
+.comparison-chart-row {
+  margin-bottom: 2.2rem;
+  overflow: hidden;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-top: 2px solid #ccc;
+  padding-top: 2rem;
+
+  &:first-child {
+
+      @media screen and (min-width: $width-desktop) {
+        border-top: none;
+      }
+  }
+
+  @media screen and (min-width: $width-tablet) {
+    display: flex;
+    padding-top: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  @media screen and (min-width: $width-desktop) {
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+    margin-bottom: 0;
+    border-top: 2px solid #ccc;
+  }
+}
+
+.top-level-data {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+  margin-bottom: 0;
+  justify-content: center;
+
+  @media screen and (min-width: $width-tablet) {
+    flex: 2;
+    align-items: center;
+  }
+
+  @media screen and (min-width: $width-desktop) {
+    flex-wrap: nowrap;
+    flex: 2;
+    justify-content: space-between;
+    margin-right: 10px;
+  }
+}
+
+.top-level-data-item {
+  flex: 0 0 33%;
+  text-align: center;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 600px) {
+    flex: 0 0 20%;
+  }
+
+  @media screen and (min-width: $width-tablet) {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: $width-desktop) {
+    flex: 0 0 16.66%;
+  }
+}
+
+.top-level-data-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.top-level-data-property {
+
+}
+
+.merchant-logo {
+
+  .comparison-chart & {
+    height: 40px;
+    width: auto;
+  }
+}
+
+.deal-link-wrapper {
+  display: flex;
+
+  @media screen and (min-width: 600px) {
+    justify-content: flex-end;
+  }
+
+  @media screen and (min-width: $width-tablet) {
+    display: block;
+  }
+
+  @media screen and (min-width: $width-desktop) {
+    flex: 0 0 100px;
+  }
+}
+
+.deal-link {
+  background-color: yellowgreen;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  line-height: 44px;
+  text-align: center;
+  flex: 2;
+
+  @media screen and (min-width: 600px) {
+    flex: 0 0 120px;
+  }
+
+  .comparison-chart & {
+
+  }
+}
+
+.filter-clear {
+  appearance: none;
+  -webkit-appearance: none;
+  color: blue;
+  background: transparent;
+  border: none;
+  line-height: 44px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.filter-close {
+  appearance: none;
+  -webkit-appearance: none;
+  line-height: 44px;
+  border: none;
+  font-size: 1rem;
+  padding: 0 9px;
+
+  .filters-header & {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -22px;
+  }
+}
+
+.filters-header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+
+  @media screen and (min-width: $width-desktop) {
+    display: none;
+  }
+}
+
+.filters-content {
+  margin-top: 50px;
+  overflow-y: scroll;
+
+  @media screen and (min-width: $width-desktop) {
+    margin-top: 0;
+    overflow-y: auto;
+  }
+}
+
+.comparison-chart-loading-ui {
+  display: none;
+
+  @media screen and (min-width: $width-desktop) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.8);
+    background-image: url(/img/loading-spinner.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 32px 32px;
+  }
+
+  .comparison-chart.loading & {
+    display: block;
+  }
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  background-image: url(/img/loading-spinner.gif);
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+
+  .filters-header & {
+    display: inline-block;
+  }
+}
+
+.filter-show {
+
+  @media screen and (min-width: $width-desktop) {
+    display: none;
+  }
+}
+
+.comparison-chart-sort {
+
+  @media screen and (min-width: $width-desktop) {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -20px;
+  }
+
+  select {
+    width: auto;
+    @media screen and (min-width: $width-desktop) {
+
+    }
+  }
+}
+
+.comparison-chart-header {
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (min-width: $width-desktop) {
+    height: 60px;
+    overflow: hidden;
+  }
+}
+
+.comparison-chart-sorting-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.price {
+  color: red;
+  font-weight: bold;
+
+  .deal-link-wrapper & {
+    width: 100px;
+    line-height: 44px;
+    font-size: 1.5rem;
+  }
+}
