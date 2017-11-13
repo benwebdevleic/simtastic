@@ -1,0 +1,10 @@
+---
+layout: page
+title: Sim-only contracts under £15 a month
+---
+{% assign sorted_deals = (site.data.deals | sort: 'price') %}
+{% for deal in sorted_deals %}
+  {% if deal.price <= 15 %}
+    {% include inline-deal.html %}
+  {% endif %}
+{% endfor %}

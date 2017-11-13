@@ -1,0 +1,5 @@
+{% if include.val >= 1000 %}
+  {{ include.val | divided_by: 1000 }}GB
+{% else %}
+  {{ include.val }}MB
+{% endif %}
