@@ -64,10 +64,18 @@
 
 .comparison-chart-filter {
   overflow: hidden;
+
+  @media screen and (min-width: $width-desktop) {
+    position: relative;
+    margin-bottom: 1rem;
+  }
 }
 
 .comparison-chart-filter-heading {
 
+  @media screen and (min-width: $width-desktop) {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .comparison-chart-content {
@@ -177,21 +185,28 @@
   }
 
   @media screen and (min-width: $width-desktop) {
-    flex: 0 0 100px;
+    flex: 0 0 120px;
+    text-align: right;
   }
 }
 
 .deal-link {
-  background-color: yellowgreen;
+  @extend .button;
+  background-color: #46aa00;
   text-decoration: none;
   color: #fff;
   display: block;
-  line-height: 44px;
   text-align: center;
   flex: 2;
+  border-radius: 2px;
 
   @media screen and (min-width: 600px) {
     flex: 0 0 120px;
+  }
+
+  .fa-external-link {
+      margin-left: 5px;
+      // display: inline-block;
   }
 
   .comparison-chart & {
@@ -208,6 +223,12 @@
   line-height: 44px;
   padding-top: 0;
   padding-bottom: 0;
+
+  @media screen and (min-width: $width-desktop) {
+    position: absolute;
+    top: 9px;
+    right: 0;
+  }
 }
 
 .filter-close {

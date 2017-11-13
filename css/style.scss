@@ -1,0 +1,26 @@
+---
+---
+@import "variables";
+
+@import "partials/buttons";
+@import "partials/forms";
+@import "partials/typography";
+
+@import "modules/masthead";
+@import "modules/nav";
+@import "modules/footer";
+@import "modules/comparison-chart";
+
+html,body {
+  padding: 0;
+  margin: 0;
+}
+
+#content {
+  max-width: $width-desktop-large;
+
+  @media screen and (min-width: $width-desktop-large) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

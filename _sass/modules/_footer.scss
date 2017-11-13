@@ -1,0 +1,8 @@
+#footer {
+  max-width: $width-desktop-large;
+
+  @media screen and (min-width: $width-desktop-large) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
