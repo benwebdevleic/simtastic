@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simtastic</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header id="masthead">
+  <h1 id="site-title"><a href="/">Simtastic</a></h1>
+  <p>Sim-only contract comparison</p>
+</header>
+
+    <nav id="nav-primary">
+  <ul>
+    <li><a href="#">Contracts under £10</a></li>
+    <li><a href="#">Contracts under £15</a></li>
+    <li><a href="#">Contracts under £20</a></li>
+  </ul>
+</nav>
+
+    <main>
+      <div id="content">
+        <h1>Compare prices</h1>
+<script>
+  window.dealData = [{"data":999999,"minutes":999999,"texts":999999,"price":35.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":999999,"minutes":999999,"texts":999999,"price":30.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":100000,"minutes":999999,"texts":999999,"price":27.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":30000,"minutes":999999,"texts":999999,"price":25.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":30000,"minutes":999999,"texts":999999,"price":20.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":12000,"minutes":999999,"texts":999999,"price":20.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":4000,"minutes":999999,"texts":999999,"price":18.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":12000,"minutes":999999,"texts":999999,"price":15.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":4000,"minutes":999999,"texts":999999,"price":15.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":1000,"minutes":600,"texts":999999,"price":14.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":4000,"minutes":999999,"texts":999999,"price":13.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":4000,"minutes":999999,"texts":999999,"price":10.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":500,"minutes":200,"texts":999999,"price":10.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":1000,"minutes":600,"texts":999999,"price":9.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":500,"minutes":200,"texts":999999,"price":5.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}}];
+</script>
+
+<div class="comparison-chart" v-bind:class="{ loading: isLoading }" id="cc-1">
+  <div class="comparison-chart-filters">
+    <div class="filters-header">
+      <button class="filter-close" v-on:click="toggleFilters">Done</button>
+      <h2>
+        <template v-if="isLoading">
+          <span class="loading-spinner"></span> updating results
+        </template>
+        <template v-else>{{ deals.length }} deal{{ pluralise(deals.length, 's', '')}} found</template>
+      </h2>
+    </div>
+    <div class="filters-content">
+      <div class="comparison-chart-filter">
+        <h3 class="comparison-chart-filter-heading">Data</h3>
+        <select name="data" v-on:change="handleFilterChange" v-model="query.data">
+          <option value="-1">Any</option>
+          <option value="500">500MB+</option>
+          <option value="1000">1GB+</option>
+          <option value="2000">2GB+</option>
+          <option value="3000">3GB+</option>
+          <option value="4000">4GB+</option>
+          <option value="5000">5GB+</option>
+          <option value="7000">7GB+</option>
+          <option value="10000">10GB+</option>
+          <option value="12000">12GB+</option>
+          <option value="15000">15GB+</option>
+          <option value="20000">20GB+</option>
+          <option value="999999">Unlimited</option>
+        </select>
+        <button class="filter-clear" v-on:click="clearFilterData">clear</button>
+      </div>
+      <div class="comparison-chart-filter">
+        <h3 class="comparison-chart-filter-heading">Minutes</h3>
+        <select name="minutes" v-on:change="handleFilterChange" v-model="query.minutes">
+          <option value="-1">Any</option>
+          <option value="200">200+</option>
+          <option value="400">400+</option>
+          <option value="600">600+</option>
+          <option value="1000">1000+</option>
+          <option value="2000">2000+</option>
+          <option value="999999">Unlimited</option>
+        </select>
+        <button class="filter-clear" v-on:click="clearFilterMinutes">clear</button>
+      </div>
+      <div class="comparison-chart-filter">
+        <h3 class="comparison-chart-filter-heading">Texts</h3>
+        <select name="texts" v-on:change="handleFilterChange" v-model="query.texts">
+          <option value="-1">Any</option>
+          <option value="200">200+</option>
+          <option value="400">400+</option>
+          <option value="600">600+</option>
+          <option value="1000">1000+</option>
+          <option value="2000">2000+</option>
+          <option value="999999">Unlimited</option>
+        </select>
+        <button class="filter-clear" v-on:click="clearFilterTexts">clear</button>
+      </div>
+      <div class="comparison-chart-filter">
+        <h3 class="comparison-chart-filter-heading">Monthly price</h3>
+        <div class="form-fields-range">
+          <label>
+            <span class="label-text">From</span>
+            <input type="number" min="0" name="priceMin" v-on:change="handleFilterChange" v-model="query.priceMin">
+          </label>
+          <label>
+            <span class="label-text">To</span>
+            <input type="number" min="0" name="priceMax" v-on:change="handleFilterChange" v-model="query.priceMax">
+          </label>
+        </div>
+        <button class="filter-clear" v-on:click="clearFilterPrice">clear</button>
+      </div>
+    </div>
+  </div>
+  <div class="comparison-chart-content">
+    <div class="comparison-chart-header">
+      <h2>{{ deals.length }} deal{{ pluralise(deals.length, 's', '')}} found</h2>
+      <div class="comparison-chart-sorting-controls">
+        <button class="filter-show" v-on:click="toggleFilters"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
+        <label class="comparison-chart-sort">
+          Sort by
+          <select v-on:change="handleDataSort">
+            <option value="price_desc">Price high to low</option>
+            <option value="price_asc">Price low to high</option>
+            <option value="data_desc">Data high to low</option>
+            <option value="data_asc">Data low to high</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div>
+      <div class="comparison-chart-row" v-for="deal in deals">
+        <ul class="top-level-data">
+          <li class="top-level-data-item"><span class="top-level-data-value">{{ deal.data === 999999 ? 'Unlimited' : gigify(deal.data) }}</span> <span class="top-level-data-property">Data</span></li>
+          <li class="top-level-data-item"><span class="top-level-data-value">{{ deal.minutes === 999999 ? 'Unlimited' : deal.minutes }}</span> <span class="top-level-data-property">Minutes</span></li>
+          <li class="top-level-data-item"><span class="top-level-data-value">{{ deal.texts === 999999 ? 'Unlimited' : deal.texts }}</span> <span class="top-level-data-property">Texts</span></li>
+          <li class="top-level-data-item"><span class="top-level-data-value">{{ deal.length }} month{{ pluralise(deal.length, 's', '') }}</span> <span class="top-level-data-property">Contract</span></li>
+          <li class="top-level-data-item"><img class="merchant-logo" v-bind:src="'/img/networks/' + deal.merchant.logo" v-bind:alt="'' + deal.merchant.name" width="100" height="40"></li>
+        </ul>
+        <div class="deal-link-wrapper">
+          <span class="price">£{{ deal.price }} p/m</span>
+          <a v-bind:href="'' + deal.url" class="deal-link">View deal <i class="fa fa-external-link" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-chart-loading-ui"></div>
+  </div>
+</div>
+
+
+
+      </div>
+    </main>
+    <footer id="footer">
+  <nav>
+    <ul>
+      <li><a href="#">Privacy policy</a></li>
+      <li><a href="#">Cookie policy</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">About this site</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Contracts under £10</a></li>
+      <li><a href="#">Contracts under £15</a></li>
+      <li><a href="#">Contracts under £20</a></li>
+    </ul>
+  </nav>
+</footer>
+
+    <script src="js/lokijs.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/comparison-chart.js" async></script>
+  </body>
+</html>
