@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ site.title }}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    {% include masthead.html %}
+    {% include nav.html %}
+    <main>
+      <div id="content">
+        {{ content }}
+      </div>
+    </main>
+    {% include footer.html %}
+    <script src="js/lokijs.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/comparison-chart.js" async></script>
+  </body>
+</html>
