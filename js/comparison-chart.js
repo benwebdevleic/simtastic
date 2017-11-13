@@ -8,40 +8,13 @@ var pluralise = function(value, plur, sing) {
 
 var db = new loki('db.json');
 
-var data = [
-  {
-    data: 12000,
-    minutes: 99999,
-    texts: 99999,
-    price: 14.00,
-    url: 'http://example.com',
-    length: 24,
-    merchant: {
-      logo: 'three.svg',
-      name: 'Three'
-    }
-  },
-  {
-    data: 15000,
-    minutes: 99999,
-    texts: 99999,
-    price: 21.00,
-    url: 'http://example.com',
-    length: 24,
-    merchant: {
-      logo: 'three.svg',
-      name: 'Three'
-    }
-  }
-];
-
 var dealsCollection = db.addCollection('deals');
 
-data.forEach(function(deal) {
+dealData.forEach(function(deal) {
   dealsCollection.insert(deal);
 });
 
-data.length = 0;
+dealData.length = 0;
 
 var comparisonChart = new Vue({
   el: '.comparison-chart',
@@ -63,21 +36,25 @@ var comparisonChart = new Vue({
   methods: {
     handleFilterChange: function(event) {
       event.preventDefault();
-      comparisonChart.query[event.target.name] = event.target.value;
+      comparisonChart.query[event.target.name] = Number(event.target.value);
       comparisonChart.fetchData();
     },
     clearFilterData: function(event) {
       comparisonChart.query.data = -1;
+      comparisonChart.fetchData();
     },
     clearFilterMinutes: function(event) {
       comparisonChart.query.minutes = -1;
+      comparisonChart.fetchData();
     },
     clearFilterTexts: function(event) {
       comparisonChart.query.texts = -1;
+      comparisonChart.fetchData();
     },
     clearFilterPrice: function(event) {
       comparisonChart.query.priceMin = null;
       comparisonChart.query.priceMax = null;
+      comparisonChart.fetchData();
     },
     fetchData: function() {
 
@@ -86,16 +63,24 @@ var comparisonChart = new Vue({
 
       setTimeout(function() {
 
-        // make a request to the db, using the query object to filter
-        var result = dealsCollection.chain().find({
+        var query = {
           data: { '$gte': comparisonChart.query.data },
           minutes: { '$gte': comparisonChart.query.minutes },
-          texts: { '$gte': comparisonChart.query.texts },
-          priceMin: { '$gte': comparisonChart.query.priceMin },
-          priceMax: { '$lte': comparisonChart.query.priceMax }
-        })
-        .simplesort(comparisonChart.query.sort.property, comparisonChart.query.sort.direction)
-        .data();
+          texts: { '$gte': comparisonChart.query.texts }
+        };
+
+        if (comparisonChart.query.priceMin !== null && comparisonChart.query.priceMax !== null) {
+          query.price = { '$between': [comparisonChart.query.priceMin, comparisonChart.query.priceMax] };
+        } else if (comparisonChart.query.priceMin !== null && comparisonChart.query.priceMax === null) {
+          query.price = { '$gte': comparisonChart.query.priceMin };
+        } else if (comparisonChart.query.priceMin === null && comparisonChart.query.priceMax !== null) {
+          query.price = { '$lte': comparisonChart.query.priceMax };
+        }
+
+        // make a request to the db, using the query object to filter
+        var result = dealsCollection.chain().find(query)
+          .simplesort(comparisonChart.query.sort.property, comparisonChart.query.sort.direction)
+          .data();
 
         comparisonChart.deals = result;
 
