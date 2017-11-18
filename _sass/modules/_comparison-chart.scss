@@ -3,8 +3,6 @@
 
   @media screen and (min-width: $width-desktop) {
     display: flex;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 }
 
@@ -54,10 +52,8 @@
   @media screen and (min-width: $width-desktop) {
     position: static;
     display: block;
-    flex: 0 0 230px;
+    flex: 0 0 250px;
     border-left: none;
-    padding-left: 0;
-    padding-right: 0;
     margin-right: 20px;
   }
 }
@@ -87,12 +83,15 @@
 }
 
 .comparison-chart-row {
-  margin-bottom: 2.2rem;
+  margin-bottom: 0.5rem;
   overflow: hidden;
-  margin-left: 20px;
-  margin-right: 20px;
-  border-top: 2px solid #ccc;
-  padding-top: 2rem;
+  padding-top: 1rem;
+  box-shadow: 0 0 4px rgba(200, 200, 200, 0.4);
+  background-color: #fff;
+  border-radius: 2px;
+  padding-bottom: 0.5rem;
+  padding-left: 10px;
+  padding-right: 10px;
 
   &:first-child {
 
@@ -104,14 +103,12 @@
   @media screen and (min-width: $width-tablet) {
     display: flex;
     padding-top: 0.5rem;
-    margin-bottom: 1.2rem;
+    padding-right: 10px;
   }
 
   @media screen and (min-width: $width-desktop) {
     padding-top: 1.1rem;
     padding-bottom: 1.1rem;
-    margin-bottom: 0;
-    border-top: 2px solid #ccc;
   }
 }
 
@@ -182,9 +179,6 @@
 
   @media screen and (min-width: $width-tablet) {
     display: block;
-  }
-
-  @media screen and (min-width: $width-desktop) {
     flex: 0 0 120px;
     text-align: right;
   }
@@ -329,8 +323,6 @@
 
 .comparison-chart-header {
   position: relative;
-  padding-left: 20px;
-  padding-right: 20px;
 
   @media screen and (min-width: $width-desktop) {
     height: 60px;

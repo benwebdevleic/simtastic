@@ -1,6 +1,8 @@
 #masthead {
   max-width: $width-desktop-large;
   overflow: hidden;
+  padding-left: $gutter-width;
+  padding-right: $gutter-width;
 
   @media screen and (min-width: $width-desktop-large) {
     margin-left: auto;

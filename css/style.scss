@@ -16,8 +16,14 @@ html,body {
   margin: 0;
 }
 
+body {
+  background-color: #f1f5f7;
+}
+
 #content {
   max-width: $width-desktop-large;
+  padding-left: $gutter-width;
+  padding-right: $gutter-width;
 
   @media screen and (min-width: $width-desktop-large) {
     margin-left: auto;
