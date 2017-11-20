@@ -3,6 +3,7 @@
 
   @media screen and (min-width: $width-desktop) {
     display: flex;
+    margin-bottom: 2rem;
   }
 }
 
@@ -60,19 +61,21 @@
 
 .comparison-chart-filter {
   overflow: hidden;
+  position: relative;
+  margin-top: 2.5rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
 
   @media screen and (min-width: $width-desktop) {
-    position: relative;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
   }
 }
 
 .comparison-chart-filter-heading {
   margin-top: 0;
-
-  @media screen and (min-width: $width-desktop) {
-    margin-bottom: 0.5rem;
-  }
+  margin-bottom: 0.5rem;
 }
 
 .comparison-chart-content {
@@ -218,11 +221,12 @@
   line-height: 44px;
   padding-top: 0;
   padding-bottom: 0;
+  position: absolute;
+  top: -11px;
+  right: 0;
 
   @media screen and (min-width: $width-desktop) {
-    position: absolute;
     top: 0;
-    right: 0;
     line-height: 1.9rem;
   }
 }
@@ -257,7 +261,7 @@
 }
 
 .filters-content {
-  margin-top: 50px;
+  margin-top: 5rem;
   overflow-y: scroll;
 
   @media screen and (min-width: $width-desktop) {
@@ -268,18 +272,19 @@
 
 .comparison-chart-loading-ui {
   display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255,255,255,0.8);
+  background-image: url(/img/loading-spinner.gif);
+  background-repeat: no-repeat;
+  background-position: top 80px center;
+  background-size: 32px 32px;
 
   @media screen and (min-width: $width-desktop) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(255,255,255,0.8);
-    background-image: url(/img/loading-spinner.gif);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 32px 32px;
+    background-position: top 160px center;
   }
 
   .comparison-chart.loading & {

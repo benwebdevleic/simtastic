@@ -5,3 +5,30 @@ a {
 body {
   font-family: 'Open Sans', sans-serif;
 }
+
+#site-title {
+  font-family: 'Poppins', sans-serif;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  background-image: url(/img/logo.svg);
+  background-repeat: no-repeat;
+  background-size: auto 26px;
+  background-position: left center;
+
+  a {
+    text-decoration: none;
+    padding-left: 27px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.strapline {
+  margin-top: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
