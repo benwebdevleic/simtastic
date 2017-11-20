@@ -15,8 +15,7 @@ select {
   background-position: right 10px top 50%;
   padding-right: 2rem;
   background-color: #efefef;
-  border: 2px solid #999;
-  border-radius: 4px; }
+  border: 2px solid #999; }
   @media screen and (min-width: 992px) {
     select {
       line-height: 40px; } }
@@ -25,8 +24,25 @@ input[type="number"] {
   line-height: 44px;
   padding: 0 0 0 7px;
   box-sizing: border-box;
-  width: 70px;
-  border: 2px solid #999; }
+  font-size: 1rem;
+  border: 1px solid #ccc; }
+  @media screen and (min-width: 992px) {
+    input[type="number"] {
+      line-height: 40px; } }
+
+.form-fields-range label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0; }
+.form-fields-range .label-text {
+  display: inline-block;
+  font-size: 1rem;
+  width: 50px; }
+.form-fields-range input[type="number"] {
+  line-height: 40px;
+  display: inline-block;
+  width: calc(100% - 50px);
+  font-size: 1rem; }
 
 a {
   color: #0B96D2; }
@@ -157,9 +173,11 @@ body {
       position: relative;
       margin-bottom: 1rem; } }
 
-@media screen and (min-width: 992px) {
-  .comparison-chart-filter-heading {
-    margin-bottom: 0.5rem; } }
+.comparison-chart-filter-heading {
+  margin-top: 0; }
+  @media screen and (min-width: 992px) {
+    .comparison-chart-filter-heading {
+      margin-bottom: 0.5rem; } }
 
 @media screen and (min-width: 992px) {
   .comparison-chart-content {
@@ -268,8 +286,9 @@ body {
   @media screen and (min-width: 992px) {
     .filter-clear {
       position: absolute;
-      top: 9px;
-      right: 0; } }
+      top: 0;
+      right: 0;
+      line-height: 1.9rem; } }
 
 .filter-close {
   appearance: none;

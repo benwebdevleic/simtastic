@@ -68,6 +68,7 @@
 }
 
 .comparison-chart-filter-heading {
+  margin-top: 0;
 
   @media screen and (min-width: $width-desktop) {
     margin-bottom: 0.5rem;
@@ -220,8 +221,9 @@
 
   @media screen and (min-width: $width-desktop) {
     position: absolute;
-    top: 9px;
+    top: 0;
     right: 0;
+    line-height: 1.9rem;
   }
 }
 

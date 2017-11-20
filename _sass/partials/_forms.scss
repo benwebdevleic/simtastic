@@ -20,18 +20,42 @@ select {
   padding-right: 2rem;
   background-color: #efefef;
   border: 2px solid #999;
-  border-radius: 4px;
 
   @media screen and (min-width: $width-desktop) {
     line-height: 40px;
   }
-
 }
 
 input[type="number"] {
   line-height: 44px;
   padding: 0 0 0 7px;
   box-sizing: border-box;
-  width: 70px;
-  border: 2px solid #999;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+
+  @media screen and (min-width: $width-desktop) {
+    line-height: 40px;
+  }
+}
+
+.form-fields-range {
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0;
+  }
+
+  .label-text {
+    display: inline-block;
+    font-size: 1rem;
+    width: 50px;
+  }
+
+  input[type="number"] {
+    line-height: 40px;
+    display: inline-block;
+    width: calc(100% - 50px);
+    font-size: 1rem;
+  }
 }
