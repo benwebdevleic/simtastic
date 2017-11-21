@@ -30,6 +30,7 @@ input[type="number"] {
   padding: 0 0 0 7px;
   box-sizing: border-box;
   font-size: 1rem;
+  border: 1px solid rgb(169, 169, 169);
 
   @media screen and (min-width: $width-desktop) {
     line-height: 40px;
@@ -55,5 +56,10 @@ input[type="number"] {
     display: inline-block;
     width: calc(100% - 50px);
     font-size: 1rem;
+    background-image: url(/img/pound-symbol.svg);
+    background-repeat: no-repeat;
+    background-size: auto 16px;
+    background-position: 9px center;
+    padding-left: 27px;
   }
 }

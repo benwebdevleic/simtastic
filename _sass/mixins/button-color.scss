@@ -1,0 +1,12 @@
+@mixin button-color($color) {
+  $darker-color: darken($color, 13.5%);
+  background: $color; /* Old browsers */
+  background: -moz-linear-gradient(top, $color 0%, $color 90%, $darker-color 90%, $darker-color 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, $color 0%,$color 90%,$darker-color 90%,$darker-color 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, $color 0%,$color 90%,$darker-color 90%,$darker-color 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color', endColorstr='$darker-color',GradientType=0 ); /* IE6-9 */
+
+  &:active {
+    background: $darker-color;
+  }
+}

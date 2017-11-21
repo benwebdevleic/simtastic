@@ -39,22 +39,22 @@ var comparisonChart = new Vue({
       comparisonChart.query[event.target.name] = Number(event.target.value);
       comparisonChart.fetchData();
     },
-    clearFilterData: function(event) {
+    handleClearFilterProperty: function(method) {
+      comparisonChart[method]();
+      comparisonChart.fetchData();
+    },
+    clearFilterData: function() {
       comparisonChart.query.data = -1;
-      comparisonChart.fetchData();
     },
-    clearFilterMinutes: function(event) {
+    clearFilterMinutes: function() {
       comparisonChart.query.minutes = -1;
-      comparisonChart.fetchData();
     },
-    clearFilterTexts: function(event) {
+    clearFilterTexts: function() {
       comparisonChart.query.texts = -1;
-      comparisonChart.fetchData();
     },
-    clearFilterPrice: function(event) {
+    clearFilterPrice: function() {
       comparisonChart.query.priceMin = null;
       comparisonChart.query.priceMax = null;
-      comparisonChart.fetchData();
     },
     fetchData: function() {
 
@@ -109,6 +109,16 @@ var comparisonChart = new Vue({
       var filters = document.querySelector('.comparison-chart-filters');
 
       filters.classList.toggle('show');
+    },
+    applyFilter: function() {
+      comparisonChart.fetchData();
+    },
+    clearFilter: function() {
+      comparisonChart.clearFilterData();
+      comparisonChart.clearFilterMinutes();
+      comparisonChart.clearFilterTexts();
+      comparisonChart.clearFilterPrice();
+      comparisonChart.fetchData();
     }
   }
 });

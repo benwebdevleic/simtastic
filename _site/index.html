@@ -58,7 +58,7 @@
           <option value="20000">20GB+</option>
           <option value="999999">Unlimited</option>
         </select>
-        <button class="filter-clear" v-on:click="clearFilterData">clear</button>
+        <button class="filter-clear" v-on:click="handleClearFilterProperty('clearFilterData')">clear</button>
       </div>
       <div class="comparison-chart-filter">
         <h3 class="comparison-chart-filter-heading">Minutes</h3>
@@ -100,6 +100,8 @@
         </div>
         <button class="filter-clear" v-on:click="clearFilterPrice">clear</button>
       </div>
+      <button class="filter-form-button filter-clear-all" v-on:click="clearFilter">Clear</button>
+      <button class="filter-form-button filter-apply" v-on:click="applyFilter">Apply</button>
     </div>
   </div>
   <div class="comparison-chart-content">

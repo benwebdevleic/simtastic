@@ -353,3 +353,18 @@
     font-size: 1.5rem;
   }
 }
+
+.filter-form-button {
+  display: block;
+  width: 100%;
+}
+
+.filter-apply {
+
+}
+
+.filter-clear-all {
+  @include button-color(#cc0000);
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
