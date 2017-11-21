@@ -1,3 +1,25 @@
-.inline-deal {
+.deal-inline {
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  padding-top: 1rem;
+  box-shadow: 0 0 4px rgba(200, 200, 200, 0.4);
+  background-color: #fff;
+  border-radius: 2px;
+  padding-bottom: 0.5rem;
+  padding-left: 10px;
+  padding-right: 10px;
 
+  @media screen and (min-width: $width-tablet) {
+    display: flex;
+    padding-top: 0.5rem;
+    padding-right: 10px;
+  }
+
+  @media screen and (min-width: $width-desktop) {
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+  }
 }
