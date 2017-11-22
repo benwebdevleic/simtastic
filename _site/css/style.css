@@ -445,7 +445,7 @@ h1, h2, h3, h4, h5, h6 {
   color: red;
   font-weight: bold; }
   .deal-link-wrapper .price {
-    width: 100px;
+    margin-right: 10px;
     line-height: 44px;
     font-size: 1.5rem; }
 

@@ -133,3 +133,14 @@
   merchant:
     logo: three.svg
     name: Three
+
+# EE
+- data: 40000
+  minutes: 999999
+  texts: 999999
+  price: 44.99
+  length: 12
+  url: "http://example.com"
+  merchant:
+    logo: ee.svg
+    name: EE
