@@ -19,7 +19,7 @@
     width: ($gutter-width * 2) - 2px;
     height: 44px;
     background-color: lighten($blue, 20%);
-    background-image: url(/img/right-arrow-white.svg);
+    background-image: url($baseurl + "/img/right-arrow-white.svg");
     background-repeat: no-repeat;
     background-position: center;
 

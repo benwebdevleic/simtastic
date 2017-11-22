@@ -278,7 +278,7 @@
   bottom: 0;
   left: 0;
   background-color: rgba(255,255,255,0.8);
-  background-image: url(/img/loading-spinner.gif);
+  background-image: url($baseurl + "/img/loading-spinner.gif");
   background-repeat: no-repeat;
   background-position: top 80px center;
   background-size: 32px 32px;
@@ -295,7 +295,7 @@
 .loading-spinner {
   width: 16px;
   height: 16px;
-  background-image: url(/img/loading-spinner.gif);
+  background-image: url($baseurl + "/img/loading-spinner.gif");
   background-size: 16px 16px;
   background-repeat: no-repeat;
 

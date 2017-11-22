@@ -14,7 +14,7 @@ select {
   -webkit-appearance: none;
   padding: 0 7px;
   font-size: 1rem;
-  background-image: url(/img/select-triangle.svg);
+  background-image: url($baseurl + "/img/select-triangle.svg");
   background-repeat: no-repeat;
   background-position: right 10px top 50%;
   padding-right: 2rem;
@@ -56,7 +56,7 @@ input[type="number"] {
     display: inline-block;
     width: calc(100% - 50px);
     font-size: 1rem;
-    background-image: url(/img/pound-symbol.svg);
+    background-image: url($baseurl + "/img/pound-symbol.svg");
     background-repeat: no-repeat;
     background-size: auto 16px;
     background-position: 9px center;

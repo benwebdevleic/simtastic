@@ -10,7 +10,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin-top: 10px;
   margin-bottom: 0px;
-  background-image: url(/img/logo.svg);
+  background-image: url($baseurl + "/img/logo.svg");
   background-repeat: no-repeat;
   background-size: auto 26px;
   background-position: left center;

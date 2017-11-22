@@ -34,7 +34,7 @@ select {
   -webkit-appearance: none;
   padding: 0 7px;
   font-size: 1rem;
-  background-image: url(/img/select-triangle.svg);
+  background-image: url("/simtastic/img/select-triangle.svg");
   background-repeat: no-repeat;
   background-position: right 10px top 50%;
   padding-right: 2rem;
@@ -66,7 +66,7 @@ input[type="number"] {
   display: inline-block;
   width: calc(100% - 50px);
   font-size: 1rem;
-  background-image: url(/img/pound-symbol.svg);
+  background-image: url("/simtastic/img/pound-symbol.svg");
   background-repeat: no-repeat;
   background-size: auto 16px;
   background-position: 9px center;
@@ -82,7 +82,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin-top: 10px;
   margin-bottom: 0px;
-  background-image: url(/img/logo.svg);
+  background-image: url("/simtastic/img/logo.svg");
   background-repeat: no-repeat;
   background-size: auto 26px;
   background-position: left center; }
@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 18px;
     height: 44px;
     background-color: #4dc3f6;
-    background-image: url(/img/right-arrow-white.svg);
+    background-image: url("/simtastic/img/right-arrow-white.svg");
     background-repeat: no-repeat;
     background-position: center; }
     @media screen and (min-width: 768px) {
@@ -397,7 +397,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.8);
-  background-image: url(/img/loading-spinner.gif);
+  background-image: url("/simtastic/img/loading-spinner.gif");
   background-repeat: no-repeat;
   background-position: top 80px center;
   background-size: 32px 32px; }
@@ -410,7 +410,7 @@ h1, h2, h3, h4, h5, h6 {
 .loading-spinner {
   width: 16px;
   height: 16px;
-  background-image: url(/img/loading-spinner.gif);
+  background-image: url("/simtastic/img/loading-spinner.gif");
   background-size: 16px 16px;
   background-repeat: no-repeat; }
   .filters-header .loading-spinner {
