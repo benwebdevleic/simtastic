@@ -25,6 +25,7 @@ var comparisonChart = new Vue({
       texts: -1,
       priceMin: null,
       priceMax: null,
+      length: -1,
       sort: {
         property: 'price',
         direction: true
@@ -56,6 +57,9 @@ var comparisonChart = new Vue({
       comparisonChart.query.priceMin = null;
       comparisonChart.query.priceMax = null;
     },
+    clearFilterLength: function() {
+      comparisonChart.query.length = -1;
+    },
     fetchData: function() {
 
       // set the loading state to true
@@ -68,6 +72,10 @@ var comparisonChart = new Vue({
           minutes: { '$gte': comparisonChart.query.minutes },
           texts: { '$gte': comparisonChart.query.texts }
         };
+
+        if (comparisonChart.query.length > -1) {
+          query.length = comparisonChart.query.length;
+        }
 
         if (comparisonChart.query.priceMin !== null && comparisonChart.query.priceMax !== null) {
           query.price = { '$between': [comparisonChart.query.priceMin, comparisonChart.query.priceMax] };
@@ -118,6 +126,7 @@ var comparisonChart = new Vue({
       comparisonChart.clearFilterMinutes();
       comparisonChart.clearFilterTexts();
       comparisonChart.clearFilterPrice();
+      comparisonChart.clearFilterLength();
       comparisonChart.fetchData();
     }
   }

@@ -343,7 +343,7 @@ h1, h2, h3, h4, h5, h6 {
 .filter-clear {
   appearance: none;
   -webkit-appearance: none;
-  color: blue;
+  color: #333;
   background: transparent;
   border: none;
   line-height: 44px;
@@ -352,6 +352,8 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: -11px;
   right: 0; }
+  .filter-clear:active {
+    background-color: transparent; }
   @media screen and (min-width: 992px) {
     .filter-clear {
       top: 0;
@@ -382,12 +384,17 @@ h1, h2, h3, h4, h5, h6 {
       display: none; } }
 
 .filters-content {
-  margin-top: 5rem;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  position: absolute;
+  width: calc(100% - 20px);
+  top: 72px;
+  bottom: 120px; }
   @media screen and (min-width: 992px) {
     .filters-content {
       margin-top: 0;
-      overflow-y: auto; } }
+      overflow-y: auto;
+      position: static;
+      width: auto; } }
 
 .comparison-chart-loading-ui {
   display: none;
@@ -448,6 +455,21 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 10px;
     line-height: 44px;
     font-size: 1.5rem; }
+
+.comparison-chart-filter-buttons {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  background-color: #fff; }
+  @media screen and (min-width: 992px) {
+    .comparison-chart-filter-buttons {
+      position: static;
+      padding: 0;
+      background-color: transparent;
+      margin-top: 1rem; } }
 
 .filter-form-button {
   display: block;
