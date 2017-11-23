@@ -215,7 +215,7 @@
 .filter-clear {
   appearance: none;
   -webkit-appearance: none;
-  color: blue;
+  color: #333;;
   background: transparent;
   border: none;
   line-height: 44px;
@@ -224,6 +224,10 @@
   position: absolute;
   top: -11px;
   right: 0;
+
+  &:active {
+    background-color: transparent;
+  }
 
   @media screen and (min-width: $width-desktop) {
     top: 0;
@@ -372,6 +376,7 @@
     position: static;
     padding: 0;
     background-color: transparent;
+    margin-top: 1rem;
   }
 }
 

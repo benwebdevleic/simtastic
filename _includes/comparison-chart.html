@@ -44,7 +44,7 @@
           <option value="2000">2000+</option>
           <option value="999999">Unlimited</option>
         </select>
-        <button class="filter-clear" v-on:click="clearFilterMinutes">clear</button>
+        <button class="filter-clear" v-on:click="handleClearFilterProperty('clearFilterMinutes')">clear</button>
       </div>
       <div class="comparison-chart-filter">
         <h3 class="comparison-chart-filter-heading">Texts</h3>
@@ -57,7 +57,7 @@
           <option value="2000">2000+</option>
           <option value="999999">Unlimited</option>
         </select>
-        <button class="filter-clear" v-on:click="clearFilterTexts">clear</button>
+        <button class="filter-clear" v-on:click="handleClearFilterProperty('clearFilterTexts')">clear</button>
       </div>
       <div class="comparison-chart-filter">
         <h3 class="comparison-chart-filter-heading">Monthly price</h3>
@@ -71,7 +71,16 @@
             <input type="number" min="0" name="priceMax" v-on:change="handleFilterChange" v-model="query.priceMax">
           </label>
         </div>
-        <button class="filter-clear" v-on:click="clearFilterPrice">clear</button>
+        <button class="filter-clear" v-on:click="handleClearFilterProperty('clearFilterPrice')">clear</button>
+      </div>
+      <div class="comparison-chart-filter">
+        <h3 class="comparison-chart-filter-heading">Duration</h3>
+        <select name="length" v-on:change="handleFilterChange" v-model="query.length">
+          <option value="-1">Any</option>
+          <option value="1">1 Month</option>
+          <option value="12">12 months</option>
+        </select>
+        <button class="filter-clear" v-on:click="handleClearFilterProperty('clearFilterLength')">clear</button>
       </div>
     </div>
     <div class="comparison-chart-filter-buttons">
