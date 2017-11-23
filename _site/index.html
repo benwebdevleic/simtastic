@@ -10,7 +10,7 @@
   </head>
   <body>
     <header id="masthead">
-  <h1 id="site-title"><a href="/">Simtastic</a></h1>
+  <h1 id="site-title"><a href="/simtastic/">Simtastic</a></h1>
   <p class="strapline">Sim-only contract comparison</p>
 </header>
 
@@ -27,6 +27,7 @@
         <h1>Compare prices</h1>
 <script>
   window.dealData = [{"data":999999,"minutes":999999,"texts":999999,"price":35.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":999999,"minutes":999999,"texts":999999,"price":30.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":100000,"minutes":999999,"texts":999999,"price":27.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":30000,"minutes":999999,"texts":999999,"price":25.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":30000,"minutes":999999,"texts":999999,"price":20.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":12000,"minutes":999999,"texts":999999,"price":20.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":4000,"minutes":999999,"texts":999999,"price":18.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":12000,"minutes":999999,"texts":999999,"price":15.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":4000,"minutes":999999,"texts":999999,"price":15.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":1000,"minutes":600,"texts":999999,"price":14.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":4000,"minutes":999999,"texts":999999,"price":13.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":4000,"minutes":999999,"texts":999999,"price":10.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":500,"minutes":200,"texts":999999,"price":10.0,"length":1,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":1000,"minutes":600,"texts":999999,"price":9.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":500,"minutes":200,"texts":999999,"price":5.0,"length":12,"url":"http://example.com","merchant":{"logo":"three.svg","name":"Three"}},{"data":40000,"minutes":999999,"texts":999999,"price":44.99,"length":12,"url":"http://example.com","merchant":{"logo":"ee.svg","name":"EE"}}];
+  window.baseurl = "/simtastic";
 </script>
 
 <div class="comparison-chart" v-bind:class="{ loading: isLoading }" id="cc-1">
@@ -138,7 +139,7 @@
           <li class="top-level-data-item"><span class="top-level-data-value">{{ deal.minutes === 999999 ? 'Unlimited' : deal.minutes }}</span> <span class="top-level-data-property">Minutes</span></li>
           <li class="top-level-data-item"><span class="top-level-data-value">{{ deal.texts === 999999 ? 'Unlimited' : deal.texts }}</span> <span class="top-level-data-property">Texts</span></li>
           <li class="top-level-data-item"><span class="top-level-data-value">{{ deal.length }} month{{ pluralise(deal.length, 's', '') }}</span> <span class="top-level-data-property">Contract</span></li>
-          <li class="top-level-data-item"><img class="merchant-logo" v-bind:src="'/img/networks/' + deal.merchant.logo" v-bind:alt="'' + deal.merchant.name" width="100" height="40"></li>
+          <li class="top-level-data-item"><img class="merchant-logo" v-bind:src="baseurl + '/img/networks/' + deal.merchant.logo" v-bind:alt="'' + deal.merchant.name" width="100" height="40"></li>
         </ul>
         <div class="deal-link-wrapper">
           <span class="price">£{{ deal.price }} p/m</span>
@@ -158,9 +159,9 @@
   <div id="footer-content">
     <nav>
       <ul>
-        <li><a href="#">Contracts under £10</a></li>
-        <li><a href="#">Contracts under £15</a></li>
-        <li><a href="#">Contracts under £20</a></li>
+        <li><a href="/simtastic/sim-only-contracts-under-10-pounds-a-month">Contracts under £10</a></li>
+        <li><a href="/simtastic/sim-only-contracts-under-15-pounds-a-month">Contracts under £15</a></li>
+        <li><a href="/simtastic/sim-only-contracts-under-20-pounds-a-month">Contracts under £20</a></li>
       </ul>
       <ul>
         <li><a href="#">Privacy policy</a></li>

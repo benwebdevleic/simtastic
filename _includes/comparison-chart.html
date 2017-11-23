@@ -1,5 +1,6 @@
 <script>
   window.dealData = {{ site.data.deals | jsonify }};
+  window.baseurl = "{{ site.baseurl }}";
 </script>
 {% raw %}
 <div class="comparison-chart" v-bind:class="{ loading: isLoading }" id="cc-1">
@@ -111,7 +112,7 @@
           <li class="top-level-data-item"><span class="top-level-data-value">{{ deal.minutes === 999999 ? 'Unlimited' : deal.minutes }}</span> <span class="top-level-data-property">Minutes</span></li>
           <li class="top-level-data-item"><span class="top-level-data-value">{{ deal.texts === 999999 ? 'Unlimited' : deal.texts }}</span> <span class="top-level-data-property">Texts</span></li>
           <li class="top-level-data-item"><span class="top-level-data-value">{{ deal.length }} month{{ pluralise(deal.length, 's', '') }}</span> <span class="top-level-data-property">Contract</span></li>
-          <li class="top-level-data-item"><img class="merchant-logo" v-bind:src="'/img/networks/' + deal.merchant.logo" v-bind:alt="'' + deal.merchant.name" width="100" height="40"></li>
+          <li class="top-level-data-item"><img class="merchant-logo" v-bind:src="baseurl + '/img/networks/' + deal.merchant.logo" v-bind:alt="'' + deal.merchant.name" width="100" height="40"></li>
         </ul>
         <div class="deal-link-wrapper">
           <span class="price">£{{ deal.price }} p/m</span>
