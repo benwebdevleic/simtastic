@@ -183,7 +183,7 @@
 
   @media screen and (min-width: $width-tablet) {
     display: block;
-    flex: 0 0 120px;
+    flex: 0 0 150px;
     text-align: right;
   }
 }
@@ -360,6 +360,10 @@
     margin-right: 10px;
     line-height: 44px;
     font-size: 1.5rem;
+
+    @media screen and (min-width: $width-tablet) {
+      margin-right: 0;
+    }
   }
 }
 
