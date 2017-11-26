@@ -30,7 +30,7 @@
   window.baseurl = "/simtastic";
 </script>
 
-<div class="comparison-chart" v-bind:class="{ loading: isLoading }" id="cc-1">
+<div class="comparison-chart" v-bind:class="{ loading: isLoading }" id="cc-1" v-cloak>
   <div class="comparison-chart-filters">
     <div class="filters-header">
       <button class="filter-close" v-on:click="toggleFilters">Done</button>
@@ -168,8 +168,8 @@
         <li><a href="/simtastic/cookie-policy">Cookie policy</a></li>
       </ul>
       <ul>
-        <li><a href="#">About this site</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/simtastic/about">About this site</a></li>
+        <li><a href="/simtastic/contact">Contact</a></li>
       </ul>
     </nav>
   </div>
