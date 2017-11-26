@@ -30,6 +30,7 @@ body {
   max-width: $width-desktop-large;
   padding-left: $gutter-width;
   padding-right: $gutter-width;
+  padding-bottom: 30px;
 
   @media screen and (min-width: $width-desktop-large) {
     margin-left: auto;
