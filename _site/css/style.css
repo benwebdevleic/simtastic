@@ -85,7 +85,8 @@ body {
   background-image: url("/simtastic/img/logo.svg");
   background-repeat: no-repeat;
   background-size: auto 26px;
-  background-position: left center; }
+  background-position: left center;
+  font-size: 2em; }
   #site-title a {
     text-decoration: none;
     padding-left: 27px; }
