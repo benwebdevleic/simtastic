@@ -1,4 +1,8 @@
 <header id="masthead">
+  {% if page.url == "/" %}
   <h1 id="site-title"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-  <p class="strapline">Sim-only contract comparison</p>
+  {% else %}
+  <div id="site-title"><a href="{{ site.baseurl }}/">{{ site.title }}</a></div>
+  {% endif %}
+  <p class="strapline">{{ site.strapline }}</p>
 </header>
