@@ -128,6 +128,22 @@ var comparisonChart = new Vue({
       comparisonChart.clearFilterPrice();
       comparisonChart.clearFilterLength();
       comparisonChart.fetchData();
+    },
+    handleAffiliateLinkClick: function(event) {
+
+      var dimensions = {
+        dimension1: event.target.dataset.afData,
+        dimension2: event.target.dataset.afMinutes,
+        dimension3: event.target.dataset.afTexts,
+        dimension4: event.target.dataset.afPrice,
+        dimension5: event.target.dataset.afLength,
+        dimension6: event.target.dataset.afMerchant,
+        dimension7: event.target.dataset.afUrl
+      };
+
+      if (gtag) {
+        gtag('event', 'click', dimensions);
+      }
     }
   }
 });

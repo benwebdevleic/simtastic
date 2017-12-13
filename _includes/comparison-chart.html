@@ -116,7 +116,7 @@
         </ul>
         <div class="deal-link-wrapper">
           <span class="price">£{{ deal.price }} p/m</span>
-          <a v-bind:href="'' + deal.url" class="deal-link">View deal <i class="fa fa-external-link" aria-hidden="true"></i></a>
+          <a v-bind:href="deal.url" class="deal-link" v-on:click="handleAffiliateLinkClick" v-bind:data-af-data="deal.data" v-bind:data-af-minutes="deal.minutes" v-bind:data-af-texts="deal.texts" v-bind:data-af-price="deal.price" v-bind:data-af-merchant="deal.merchant.name" v-bind:data-af-length="deal.length" v-bind:data-af-url="deal.url">View deal <i class="fa fa-external-link" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
