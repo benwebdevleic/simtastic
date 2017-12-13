@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15298256-9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-15298256-9');
+    </script>
     <meta charset="utf-8">
     <title>Sim Only Comparison | Simtastic</title>
     <meta name="description" content="Compare the latest deals for sim only contracts from the major UK phone networks">
@@ -147,7 +156,7 @@
         </ul>
         <div class="deal-link-wrapper">
           <span class="price">£{{ deal.price }} p/m</span>
-          <a v-bind:href="'' + deal.url" class="deal-link">View deal <i class="fa fa-external-link" aria-hidden="true"></i></a>
+          <a v-bind:href="deal.url" class="deal-link" v-on:click="handleAffiliateLinkClick" v-bind:data-af-data="deal.data" v-bind:data-af-minutes="deal.minutes" v-bind:data-af-texts="deal.texts" v-bind:data-af-price="deal.price" v-bind:data-af-merchant="deal.merchant.name" v-bind:data-af-length="deal.length" v-bind:data-af-url="deal.url">View deal <i class="fa fa-external-link" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
